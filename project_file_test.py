@@ -4,10 +4,6 @@ from pyspark.sql.functions import col,explode, monotonically_increasing_id
 from pyspark.sql.types import IntegerType, DoubleType, StructField, StructType, ArrayType
 from pyspark.ml.linalg import Vectors
 
-import math
-import numpy as np
-import os
-
 base_path = "hdfs://ctit048.ewi.utwente.nl/user/s2640996"
 
 sensor_name = "Sensor3"

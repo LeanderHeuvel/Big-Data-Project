@@ -27,5 +27,6 @@ sensor4 = sensor4.map(lambda (path, data) : (path.split('row')[1], data.split(',
 sensor4 = sensor4.select(col('_1'), col("_2").alias("sensor4_measurement").cast(ArrayType(DoubleType())))
 
 sensors = sensor4.join(sensor3, on=['_1']).rdd
-cov = sensors.map(lambda x: x[0], np.cov(x[1],x[2]).tolist())
+cov = sensors.map(lambda x: (x[0], np.cov(x[1], x[2]).tolist()))
 acos = cov.map(lambda x: math.acos(x[1],x[2]))
+print(acos.count())
