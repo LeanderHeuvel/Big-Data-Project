@@ -13,13 +13,16 @@ base_path = "hdfs://ctit048.ewi.utwente.nl/user/s2640996"
 
 sensor_name = "Sensor3"
 
-C1 = spark.wholeTextFiles(os.path.join(base_path,sensor_name))
+C1 = spark.wholeTextFiles(os.path.join(base_path,sensor_name)) 
+# returns a row with filename (_1) and a densevector(_2) containing all measurements
 
+## current runtime 
 
 df1 = C1.map(lambda (path, data) : (path.split('row')[1], Vectors.dense(data.split(',')))).toDF()
-
 dct = DCT(inverse=False, inputCol='_2', outputCol='result')
 
-df2 = dct.transform(df1)
+# df2 = dct.transform(df1)
 
-print(df2.select('result').head(1))
+# print(df2.select('result').head(1))
+
+
