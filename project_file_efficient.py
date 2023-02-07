@@ -28,5 +28,5 @@ sensor4 = sensor4.select(col('_1'), col("_2").alias("sensor4_measurement").cast(
 
 sensors = sensor4.join(sensor3, on=['_1']).rdd
 cov = sensors.map(lambda x: (x[0], np.cov(x[1], x[2]).tolist()))
-acos = cov.map(lambda x: math.acos(x[1],x[2]))
+acos = cov.map(lambda x: math.acos(x[0],x[1]))
 print(acos.count())
