@@ -22,8 +22,8 @@ C2 = spark.wholeTextFiles(base_path+'Sensor4', minPartitions=200)
 
 ## current runtime
 
-df1 = C1.map(lambda (path, data) : (path.split('row')[1], Vectors.dense(data.split(',')))).toDF().repartition(200, col('_1'))
-df2 = C2.map(lambda (path, data) : (path.split('row')[1], Vectors.dense(data.split(',')))).toDF().repartition(200, col('_1'))
+df1 = C1.map(lambda (path, data) : (path.split('row')[1][:-4], Vectors.dense(data.split(',')))).toDF().repartition(200, col('_1'))
+df2 = C2.map(lambda (path, data) : (path.split('row')[1][:-4], Vectors.dense(data.split(',')))).toDF().repartition(200, col('_1'))
 
 dct = DCT(inverse=False, inputCol='_2', outputCol='result')
 
