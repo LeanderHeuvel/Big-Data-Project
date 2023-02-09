@@ -34,7 +34,7 @@ sensors = sensor4.join(sensor3, on=['_1']).rdd
 
 #sensors.show()
 # print(len(sensors.take(1)[0][1]))
-cov = sensors.map(lambda x: (x[0], np.cov(x[1], x[2])[0][1]))
+cov = sensors.map(lambda x: (x[0], np.corrcoef(x[1], x[2])[0][1]))
 #print(cov)
 #print("cov first take",cov.take(1))
 
