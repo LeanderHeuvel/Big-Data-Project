@@ -87,7 +87,6 @@ print("Features importances ", model.featureImportances)
 prediction_results = "Decisiontree_regression_predictions_3"
 model.transform(test).write.parquet(prediction_results)
 
-
 glr = GeneralizedLinearRegression(family="gaussian", link="identity", linkPredictionCol="p")
 model = glr.fit(train)
 evaluator = RegressionEvaluator()
