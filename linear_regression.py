@@ -12,5 +12,7 @@ df = spark.read.csv(features_path)
 
 
 lr = LinearRegression(maxIter=5, regParam=0.0, solver="normal", weightCol="weight")
+model = lr.fit(df)
 
-df.show()
+
+df.show()   
