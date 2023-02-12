@@ -1,0 +1,10 @@
+Ridge Regression
+
+Mean absolute error: ', 0.1097372367224101
+Root mean squared error: ', 0.1467593303242368
+Mean squared error: ', 0.02153830103721844
+R2 score: ', 0.9902048808381144
+coefficients: [0.2369, 0.1849, 0.0052, 0.1325, 1.4005]
+
+Lasso Regression
+
