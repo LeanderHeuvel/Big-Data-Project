@@ -53,3 +53,10 @@ Features importances:
 SparseVector(5, {1: 0.0002, 2: 0.0008, 3: 0.0119, 4: 0.9871}))
 
 Decision Tree Regressor Depth 5
+
+Mean absolute error: ', 0.12807291310593644
+Root mean squared error: ', 0.19124299508159856
+Mean squared error: ', 0.036573883167780326
+R2 score: ', 0.9833670472326375
+Features importances:
+SparseVector(5, {1: 0.0002, 2: 0.0008, 3: 0.0119, 4: 0.9871})
