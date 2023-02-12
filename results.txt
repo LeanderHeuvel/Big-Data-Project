@@ -32,7 +32,24 @@ Coefficients:
 
  coefficients: [-2.3578, -1.7917, 0.0168, 0.4905, 2.6739]
 
- Decision Tree Regressor Depth 3
+Decision Tree Regressor Depth 3
 
- 
+Mean absolute error: ', 0.2029844777296935
+Root mean squared error: ', 0.2611410735048603
+Mean squared error: ', 0.06819466027127087
+R2 score: ', 0.9689866520851791
 
+Feature Importances:
+SparseVector(5, {4: 1.0})
+
+Decision Tree Regressor Depth 4
+
+Mean absolute error: ', 0.12807291310593644
+Root mean squared error: ', 0.19124299508159856
+Mean squared error: ', 0.036573883167780326
+R2 score: ', 0.9833670472326375
+
+Features importances:
+SparseVector(5, {1: 0.0002, 2: 0.0008, 3: 0.0119, 4: 0.9871}))
+
+Decision Tree Regressor Depth 5
