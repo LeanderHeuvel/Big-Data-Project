@@ -138,7 +138,7 @@ prediction_results = "Ridge_regression"
 model.transform(test).write.parquet(prediction_results)
 
 print("Lasso Regression")
-##Ridge regression requires lambda > 0  and alpha = 0  otherwise we have lasso regression
+##Ridge regression requires lambda > 0  and alpha = 1  otherwise we have lasso regression
 lambd = 0.01
 alpha = 1
 
