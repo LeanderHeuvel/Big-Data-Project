@@ -8,3 +8,31 @@ coefficients: [0.2369, 0.1849, 0.0052, 0.1325, 1.4005]
 
 Lasso Regression
 
+Mean absolute error: ', 0.11105133052982438
+Root mean squared error: ', 0.1462612492886908
+Mean squared error: ', 0.021392353043488556
+R2 score: ', 0.9902712545965437
+coefficients: [0.0327, 0.0184, -0.0408, 0.1101, 1.505]
+
+Linear Regression (standard)
+
+Mean absolute error: ', 0.09556774649255623
+Root mean squared error: ', 0.1269932386656396
+Mean squared error: ', 0.016127282666788104
+R2 score: ', 0.9926656863414793
+
+Coefficients:        
+    Feature  Estimate Std Error  T Value P Value
+(Intercept) -641.3895   37.3256 -17.1836  0.0000
+ features_0   -2.3578    0.1232 -19.1311  0.0000
+ features_1   -1.7917    0.0942 -19.0227  0.0000
+ features_2    0.0168    0.0086   1.9619  0.0499
+ features_3    0.4905    0.0189  26.0116  0.0000
+ features_4    2.6739    0.0601  44.4649  0.0000
+
+ coefficients: [-2.3578, -1.7917, 0.0168, 0.4905, 2.6739]
+
+ Decision Tree Regressor Depth 3
+
+ 
+

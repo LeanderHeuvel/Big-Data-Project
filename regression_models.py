@@ -116,24 +116,6 @@ print("Mean absolute error: ", evaluator.evaluate(model.transform(test), {evalua
 print("Root mean squared error: ", evaluator.evaluate(model.transform(test), {evaluator.metricName: "rmse"}))
 print("Mean squared error: ", evaluator.evaluate(model.transform(test), {evaluator.metricName: "mse"}))
 print("R2 score: ", evaluator.evaluate(model.transform(test), {evaluator.metricName: "r2"}))
-prediction_results = "Ridge_Regression"
-model.transform(test).write.parquet(prediction_results)
-
-print("Ridge Regression")
-##Ridge regression requires lambda > 0  and alpha = 0  otherwise we have lasso regression
-lambd = 0.01
-alpha = 0
-
-lr = LinearRegression(maxIter=10, regParam=lambd, elasticNetParam=alpha)
-model = lr.fit(train)
-evaluator = RegressionEvaluator()
-
-
-evaluator.evaluate(model.transform(test))
-print("Mean absolute error: ", evaluator.evaluate(model.transform(test), {evaluator.metricName: "mae"}))
-print("Root mean squared error: ", evaluator.evaluate(model.transform(test), {evaluator.metricName: "rmse"}))
-print("Mean squared error: ", evaluator.evaluate(model.transform(test), {evaluator.metricName: "mse"}))
-print("R2 score: ", evaluator.evaluate(model.transform(test), {evaluator.metricName: "r2"}))
 prediction_results = "Ridge_regression"
 model.transform(test).write.parquet(prediction_results)
 
