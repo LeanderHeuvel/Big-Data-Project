@@ -7,7 +7,7 @@ from pyspark.ml.regression import DecisionTreeRegressor
 from pyspark.ml.feature import VectorAssembler
 from pyspark.ml.evaluation import RegressionEvaluator
 from pyspark.ml.feature import StandardScaler
-
+from pyspark.ml.regression import LinearRegression
 seed = 284
 
 sc = SparkContext(appName='feature_extraction')
@@ -87,11 +87,11 @@ print("Features importances ", model.featureImportances)
 prediction_results = "Decisiontree_regression_predictions_3"
 model.transform(test).write.parquet(prediction_results)
 
+
+print("Gaussian linear regression")
 glr = GeneralizedLinearRegression(family="gaussian", link="identity", linkPredictionCol="p")
 model = glr.fit(train)
 evaluator = RegressionEvaluator()
-
-print("Gaussian linear regression")
 
 evaluator.evaluate(model.transform(test))
 print("Mean absolute error: ", evaluator.evaluate(model.transform(test), {evaluator.metricName: "mae"}))
@@ -101,4 +101,20 @@ print("R2 score: ", evaluator.evaluate(model.transform(test), {evaluator.metricN
 prediction_results = "Gaussian_linear_predictions"
 model.transform(test).write.parquet(prediction_results)
 
-model.transform(test)
+print("Ridge Regression")
+##Ridge regression requires lambda > 0  and alpha = 0  otherwise we have lasso regression
+lambd = 0.01
+alpha = 0
+
+lr = LinearRegression(maxIter=10, regParam=lambd, elasticNetParam=alpha)
+model = lr.fit(train)
+evaluator = RegressionEvaluator()
+
+
+evaluator.evaluate(model.transform(test))
+print("Mean absolute error: ", evaluator.evaluate(model.transform(test), {evaluator.metricName: "mae"}))
+print("Root mean squared error: ", evaluator.evaluate(model.transform(test), {evaluator.metricName: "rmse"}))
+print("Mean squared error: ", evaluator.evaluate(model.transform(test), {evaluator.metricName: "mse"}))
+print("R2 score: ", evaluator.evaluate(model.transform(test), {evaluator.metricName: "r2"}))
+prediction_results = "Gaussian_linear_predictions"
+model.transform(test).write.parquet(prediction_results)
